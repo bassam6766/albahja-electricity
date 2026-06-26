@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#07110f"/>
+  <rect x="80" y="90" width="1040" height="450" rx="24" fill="#10201d"/>
+  <path d="M160 430h420l110-180h350" fill="none" stroke="#20c997" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="690" cy="250" r="42" fill="#ffd166"/>
+  <text x="1040" y="235" text-anchor="end" fill="#ffffff" font-size="86" font-family="Arial" font-weight="700">البهجت</text>
+  <text x="1040" y="330" text-anchor="end" fill="#d8e7e1" font-size="42" font-family="Arial">كهرباء وطاقة شمسية</text>
+</svg>
