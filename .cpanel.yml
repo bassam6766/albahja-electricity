@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/albaqifg/public_html/
+    - /bin/cp -R ~/repositories/albahja-electricity/public/. $DEPLOYPATH
+    - /bin/cp -R ~/repositories/albahja-electricity/app $DEPLOYPATH../
+    - /bin/cp -R ~/repositories/albahja-electricity/database $DEPLOYPATH../
+    - /bin/cp -R ~/repositories/albahja-electricity/storage $DEPLOYPATH../
+    - /bin/cp ~/repositories/albahja-electricity/.htaccess $DEPLOYPATH../
+    - /bin/mkdir -p $DEPLOYPATH../storage/logs
+    - /bin/chmod 755 $DEPLOYPATH../storage/logs
+    - /bin/chmod 755 ${DEPLOYPATH}uploads
