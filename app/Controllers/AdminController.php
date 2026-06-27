@@ -27,7 +27,8 @@ final class AdminController
             $counts[$table] = (int) $pdo->query("SELECT COUNT(*) FROM {$table}")->fetchColumn();
         }
         $messages = $pdo->query('SELECT * FROM contact_messages ORDER BY id DESC LIMIT 6')->fetchAll();
-        view('admin/dashboard', compact('counts', 'messages'));
+        $newMessages = (int) $pdo->query("SELECT COUNT(*) FROM contact_messages WHERE status='new'")->fetchColumn();
+        view('admin/dashboard', compact('counts', 'messages', 'newMessages'));
     }
 
     public function index(): void
