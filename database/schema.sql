@@ -113,6 +113,38 @@ INSERT IGNORE INTO settings (`key`, `value`, group_name) VALUES
 ('whatsapp', '98743373', 'contact'),
 ('email', 'info@albahjatelectricity.com', 'contact'),
 ('address', 'الكويت', 'contact'),
-('site_name', 'البهجت', 'general');
+('site_name', 'البهجت', 'general'),
+-- Hero
+('hero_title', 'طاقة بلا انقطاع<br>لمنزلك', 'hero'),
+('hero_subtitle', 'من صيانة الطوارئ إلى أنظمة الطاقة الشمسية، فريق فنيين معتمدين يبقي منزلك مضيئًا وآمنًا، في أي وقت، بضمان واضح.', 'hero'),
+('hero_btn_primary', 'احجز خدمة الآن', 'hero'),
+('hero_btn_secondary', 'تصفّح خدماتنا', 'hero'),
+('hero_badge', 'متاحون الآن · استجابة خلال 30 دقيقة', 'hero'),
+-- Why
+('why_title', 'تنفيذ نظيف، مواعيد واضحة، وضمان مكتوب.', 'why'),
+('why_subtitle', 'نعمل كفريق واحد: فحص دقيق، تسعير واضح، تنفيذ آمن، وتسليم مرتب. الهدف أن لا تحتاج لشرح المشكلة مرتين.', 'why'),
+('why_stat1_value', '30', 'why'),
+('why_stat1_label', 'دقيقة متوسط الاستجابة', 'why'),
+('why_stat2_value', '24/7', 'why'),
+('why_stat2_label', 'طوارئ كهرباء', 'why'),
+('why_stat3_value', '1', 'why'),
+('why_stat3_label', 'سنة ضمان', 'why'),
+-- Steps
+('step1_title', 'استلام الطلب', 'steps'),
+('step1_desc', 'تحدد الخدمة والموقع ووقت الزيارة المناسب.', 'steps'),
+('step2_title', 'فحص وتسعير', 'steps'),
+('step2_desc', 'يفحص الفني المشكلة ويعطيك السعر قبل بدء العمل.', 'steps'),
+('step3_title', 'تنفيذ وضمان', 'steps'),
+('step3_desc', 'تنفيذ مرتب وتسليم واضح مع توثيق الخدمة والضمان.', 'steps'),
+-- FAQ
+('faq1_q', 'هل تعملون خارج أوقات الدوام؟', 'faq'),
+('faq1_a', 'نعم، خدمات الطوارئ متاحة على مدار الساعة حسب توفر الفريق.', 'faq'),
+('faq2_q', 'هل يمكن تركيب نظام شمسي كامل؟', 'faq'),
+('faq2_a', 'نعم، نعاين الموقع ونقترح حجم النظام المناسب حسب الاستهلاك والمساحة.', 'faq'),
+('faq3_q', 'هل الأسعار واضحة قبل التنفيذ؟', 'faq'),
+('faq3_a', 'نعم، يتم توضيح التكلفة قبل بدء العمل ولا يبدأ التنفيذ إلا بعد الموافقة.', 'faq'),
+-- Contact section
+('contact_title', 'خط الطوارئ', 'contact'),
+('contact_subtitle', 'اترك طلبك وسنعاود الاتصال خلال دقائق، أو تواصل معنا مباشرة عبر واتساب.', 'contact');
 
 SET FOREIGN_KEY_CHECKS = 1;
