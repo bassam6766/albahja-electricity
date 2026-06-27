@@ -179,9 +179,10 @@ button{cursor:pointer}
     color:var(--muted);font-size:11px;font-weight:700;
     transition:color .15s;
   }
-  .bottom-nav a .bn-icon{font-size:20px;line-height:1}
+  .bottom-nav a .bn-icon{font-size:20px;line-height:1;position:relative}
   .bottom-nav a:hover,.bottom-nav a.active{color:#c4a6ff}
   .bottom-nav a.active .bn-icon{filter:drop-shadow(0 0 6px rgba(138,77,255,.8))}
+  .bn-badge{position:absolute;top:-4px;left:-4px;background:var(--danger);color:#fff;font-size:10px;font-weight:800;padding:1px 5px;border-radius:10px;line-height:1.4}
 
   /* Mobile top bar */
   .mobile-topbar{

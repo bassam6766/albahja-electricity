@@ -42,10 +42,37 @@ final class AdminController
             return;
         }
 
-        $order = $resource === 'settings' ? '`group_name` ASC, `key` ASC' : 'id DESC';
-        $rows = Database::pdo()->query("SELECT * FROM {$resource} ORDER BY {$order}")->fetchAll();
+        if ($resource === 'settings') {
+            $group = trim((string) ($_GET['group'] ?? 'hero'));
+            $allowed = ['hero','why','steps','faq','contact','general'];
+            if (!in_array($group, $allowed, true)) $group = 'hero';
+            $stmt = Database::pdo()->prepare('SELECT * FROM settings WHERE group_name = ? ORDER BY `key` ASC');
+            $stmt->execute([$group]);
+            $rows = $stmt->fetchAll();
+            $saved = !empty($_GET['saved']);
+            view('admin/settings', compact('group', 'rows', 'saved'));
+            return;
+        }
+
+        $rows = Database::pdo()->query("SELECT * FROM {$resource} ORDER BY id DESC")->fetchAll();
         $labels = $this->labels();
         view('admin/resource', compact('resource', 'meta', 'rows', 'labels'));
+    }
+
+    public function saveSettings(): void
+    {
+        Auth::requireAdmin();
+        Csrf::verify($_POST['_csrf'] ?? null);
+        $group = trim((string) ($_GET['group'] ?? 'hero'));
+        $ids  = $_POST['ids']  ?? [];
+        $vals = $_POST['vals'] ?? [];
+        $pdo  = Database::pdo();
+        $stmt = $pdo->prepare('UPDATE settings SET `value` = ? WHERE id = ?');
+        foreach ($ids as $key => $id) {
+            $val = trim((string) ($vals[$key] ?? ''));
+            $stmt->execute([$val, (int) $id]);
+        }
+        redirect("/admin/settings?group={$group}&saved=1");
     }
 
     public function store(): void

@@ -116,7 +116,6 @@ ob_start();
       <div class="stat-grid">
         <div class="stat-card reveal"><strong><?= e($why_stat1_value) ?></strong><span><?= e($why_stat1_label) ?></span></div>
         <div class="stat-card reveal"><strong><?= e($why_stat2_value) ?></strong><span><?= e($why_stat2_label) ?></span></div>
-        <div class="stat-card reveal"><strong><?= e($why_stat3_value) ?></strong><span><?= e($why_stat3_label) ?></span></div>
       </div>
     </section>
 

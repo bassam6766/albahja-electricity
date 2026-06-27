@@ -16,6 +16,8 @@ $router->post('/admin/login', [AuthController::class, 'authenticate']);
 $router->post('/admin/logout', [AuthController::class, 'logout']);
 $router->get('/admin', [AdminController::class, 'dashboard']);
 
+$router->post('/admin/settings/save', [AdminController::class, 'saveSettings']);
+
 foreach (['services', 'projects', 'categories', 'testimonials', 'gallery', 'settings', 'messages'] as $resource) {
     $router->get('/admin/' . $resource, [AdminController::class, 'index']);
     if ($resource !== 'messages') {

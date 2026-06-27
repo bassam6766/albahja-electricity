@@ -45,10 +45,33 @@ ob_start();
     </div>
 
     <div class="nav-group">
-      <div class="nav-label">محتوى الموقع</div>
-      <a class="nav-link<?= nav_active('/admin/settings', $current) ?>" href="/admin/settings">
-        <span class="nav-icon">✏️</span> نصوص الصفحات
+      <div class="nav-label">نصوص الصفحة الرئيسية</div>
+      <?php
+      $settingsGroup = $_GET['group'] ?? '';
+      $sg = fn(string $g) => ($current === '/admin/settings' && $settingsGroup === $g) ? ' active' : '';
+      ?>
+      <a class="nav-link<?= $sg('hero') ?>" href="/admin/settings?group=hero">
+        <span class="nav-icon">🏠</span> القسم الرئيسي
       </a>
+      <a class="nav-link<?= $sg('why') ?>" href="/admin/settings?group=why">
+        <span class="nav-icon">✅</span> لماذا البهجت
+      </a>
+      <a class="nav-link<?= $sg('steps') ?>" href="/admin/settings?group=steps">
+        <span class="nav-icon">🔧</span> كيف نعمل
+      </a>
+      <a class="nav-link<?= $sg('faq') ?>" href="/admin/settings?group=faq">
+        <span class="nav-icon">❓</span> الأسئلة الشائعة
+      </a>
+      <a class="nav-link<?= $sg('contact') ?>" href="/admin/settings?group=contact">
+        <span class="nav-icon">📞</span> قسم التواصل
+      </a>
+      <a class="nav-link<?= $sg('general') ?>" href="/admin/settings?group=general">
+        <span class="nav-icon">⚙️</span> معلومات التواصل
+      </a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">إدارة المحتوى</div>
       <a class="nav-link<?= nav_active('/admin/services', $current) ?>" href="/admin/services">
         <span class="nav-icon">⚡</span> الخدمات
       </a>
@@ -60,9 +83,6 @@ ob_start();
       </a>
       <a class="nav-link<?= nav_active('/admin/testimonials', $current) ?>" href="/admin/testimonials">
         <span class="nav-icon">⭐</span> آراء العملاء
-      </a>
-      <a class="nav-link<?= nav_active('/admin/categories', $current) ?>" href="/admin/categories">
-        <span class="nav-icon">🗂️</span> التصنيفات
       </a>
     </div>
 
@@ -100,14 +120,15 @@ ob_start();
   <a href="/admin" class="<?= $current === '/admin' ? 'active' : '' ?>">
     <span class="bn-icon">🏠</span>الرئيسية
   </a>
-  <a href="/admin/settings" class="<?= str_starts_with($current, '/admin/settings') ? 'active' : '' ?>">
-    <span class="bn-icon">✏️</span>المحتوى
+  <a href="/admin/settings?group=hero" class="<?= $current === '/admin/settings' ? 'active' : '' ?>">
+    <span class="bn-icon">✏️</span>النصوص
   </a>
   <a href="/admin/services" class="<?= str_starts_with($current, '/admin/services') ? 'active' : '' ?>">
     <span class="bn-icon">⚡</span>الخدمات
   </a>
   <a href="/admin/messages" class="<?= str_starts_with($current, '/admin/messages') ? 'active' : '' ?>">
     <span class="bn-icon">📩</span>الرسائل
+    <?php if (!empty($newMessages)): ?><span class="bn-badge"><?= (int)$newMessages ?></span><?php endif; ?>
   </a>
   <a href="/admin/projects" class="<?= str_starts_with($current, '/admin/projects') ? 'active' : '' ?>">
     <span class="bn-icon">🏗️</span>المزيد
